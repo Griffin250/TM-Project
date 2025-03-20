@@ -1,0 +1,30 @@
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb+srv://LiamRibe:liamribe12@tm.u8uic.mongodb.net/TM_db?retryWrites=true&w=majority
+      - API_KEY=eyJhbGciOiJSUzI1NiIsImtpZCI6IjM0QjdCRENCNDcwMkJBQjAxMDExNjRCRTZGNDM1RkU3IiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2lkLmJhcmVudHN3YXRjaC5ubyIsIm5iZiI6MTc0MjM5MDQ5NCwiaWF0IjoxNzQyMzkwNDk0LCJleHAiOjE3NDIzOTQwOTQsImF1ZCI6ImFpcyIsInNjb3BlIjpbImFpcyJdLCJjbGllbnRfaWQiOiJhZnMwMDE2Mzc2QGFnZGVyc2tvbGVuLm5vOkxpYW0ifQ.PxIdIailmC0jPJ8j50r8H2E0Z3cWGGqArkTau2NQ_J4HRy9_7mXqm9x9Uwevh_ReAuRmWSjcfgNDDAtfbrz117X4nETxUFxABBS4HThrXh8rPFt3uNFrhovGmdZgCYdr0QGfLea20aJTCCpHMX5IrWE6uAs6qhooa29Yy0Qxyx_ARjPjwSL5xrTQ7r2tTR4zscKggdhEuiO7xgYmxgo3yam6jh0ju5Q7kK6NJQVW0pTvZh4m0vL_D5dP_rdQ73bZA1Ty3gmIEo2gisXQMQ7eJQVxJ2AwnPoAw_z6AwdXVJ2eFCnHTVWqVX2Tf6-KzXUAf13eN2WwdOnVi8y-rivhPw
+      - SECRET_KEY=https://live.ais.barentswatch.no/v1/latest/combined
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "42069:42069"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
