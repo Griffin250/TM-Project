@@ -1,12 +1,4 @@
 ---
-# Project Name
-
-## Description
-
-Provide a brief description of your project. What does it do? What technologies does it use? 
-
-Example:  
-A web application that tracks real-time AIS (Automatic Identification System) data and displays ship locations on a map.
 
 ## Technologies Used
 
@@ -141,9 +133,6 @@ MIT License
 
 ---
 
-This structure should cover the essential setup and usage information for your project. You can adapt the specifics to fit your project as needed.
-
-Let me know if you need help adding any details!
 
 1. **`database.py`**: 
 This file typically handles the database connection, configuration, and session management.
@@ -164,4 +153,3 @@ Document each route, HTTP methods (GET, POST, etc.), request/response data, and 
 5. **`main.py`**:
  Typically contains the FastAPI application setup, including route inclusion and middleware configuration. 
 Document how the app initializes, the routes it serves, and any startup or shutdown procedures.
-
